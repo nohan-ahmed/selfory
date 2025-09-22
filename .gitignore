@@ -1,10 +1,30 @@
-# Python-generated files
+# Python caches
 __pycache__/
 *.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
 
-# Virtual environments
-.venv
+# SQLite database
+db.sqlite3
+db.sqlite3-journal
+
+# Environment / secrets
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# User uploads and static files
+media/
+staticfiles/
+
+# Logs
+*.log
+
+# IDEs / editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
