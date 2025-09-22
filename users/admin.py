@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import User
+from .models import User, UserCredit
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
@@ -52,3 +52,9 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('username', 'email', 'password1', 'password2', 'is_staff', 'is_active')
         }),
     )
+
+
+@admin.register(UserCredit)
+class UserCreditAdmin(admin.ModelAdmin):
+    list_display = ("id", "user", "credits", "updated_at", "created_at")
+    search_fields = ("user__username", "user__email")
