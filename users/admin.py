@@ -24,11 +24,14 @@ class CustomUserAdmin(UserAdmin):
         }),
         ('Personal Info', {
             'fields': (
+                'profile_pic',  # fixed: was 'profile_picture'
                 'first_name',
                 'last_name',
                 'phone_number',
                 'date_of_birth',
-                'profile_pic',  # fixed: was 'profile_picture'
+                'country',
+                'bio',
+                
             )
         }),
         ('Permissions', {
