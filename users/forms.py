@@ -25,7 +25,7 @@ class CustomUserChangeForm(UserChangeForm):
             "phone_number",
             "date_of_birth",
             "country",
-
+            "bio",
             # Authentication / permissions
             "password",
             "is_active",

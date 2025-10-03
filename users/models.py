@@ -19,7 +19,7 @@ class User(AbstractUser):
     # Optional personal info
     profile_pic = models.ImageField(upload_to='profile_pics', blank=True, null=True)
     phone_number = PhoneNumberField(unique=True, blank=True, null=True)
-    country = CountryField(blank_label="(select country)")
+    country = CountryField(blank=True, null=True, blank_label="(select country)")
     bio = models.TextField(blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
 
