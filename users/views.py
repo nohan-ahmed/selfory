@@ -66,7 +66,7 @@ class CustomRegisterView(BaseRegisterView):
         
         send_mail(subject, strip_tags(message), settings.DEFAULT_FROM_EMAIL, [user.email])
         
-        return Response({"message": "Registration successful"}, status=status.HTTP_201_CREATED)
+        return Response({"message": "Signed up successfully. Check your email to verify your account"}, status=status.HTTP_201_CREATED)
 
 
 class CustomVerifyEmailView(APIView):
