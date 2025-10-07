@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "celery>=5.5.3",
+    "channels>=4.3.1",
     "dj-rest-auth[with-social]>=7.0.1",
     "django>=5.2.6",
     "django-countries>=7.6.1",
@@ -16,4 +17,5 @@ dependencies = [
     "phonenumbers>=9.0.14",
     "pillow>=11.3.0",
     "redis>=6.4.0",
+    "uvicorn>=0.37.0",
 ]
