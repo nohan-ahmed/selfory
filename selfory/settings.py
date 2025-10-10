@@ -31,6 +31,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# CORS configuration
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+]
+
 # Specify the custom user model
 AUTH_USER_MODEL = "users.User"
 
@@ -48,6 +54,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'channels',
+    'corsheaders',
     'phonenumber_field',
     # ...,
     'rest_framework.authtoken',
@@ -66,6 +73,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
