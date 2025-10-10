@@ -28,3 +28,7 @@ staticfiles/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Celery
+celerybeat-schedule*
+celerybeat.pid
