@@ -1,0 +1,40 @@
+# 🧠 Python / build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+*.log
+
+# 🧰 Virtual environments
+.venv/
+env/
+venv/
+
+# # 🔐 Environment files
+# .env
+# .env.*
+# *.secret
+
+# 🧑‍💻 Git & local config
+.git
+.gitignore
+.idea/
+.vscode/
+
+# 🗂️ Node / frontend builds (if any)
+node_modules/
+dist/
+build/
+npm-debug.log
+yarn-error.log
+
+# 🐳 Docker-related files
+Dockerfile
+docker-compose.yml
+
+# ⚙️ Tests, cache, docs, etc. (optional)
+tests/
+docs/
+__debug__/
+.cache/

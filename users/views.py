@@ -1,24 +1,19 @@
-from django.core.mail import send_mail
-from django.utils.html import strip_tags
-from django.conf import settings
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, smart_str
 from django.template.loader import render_to_string
 from django.contrib.auth.tokens import default_token_generator
-from django.db import IntegrityError
 # rest framework
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 # allauth import
 from dj_rest_auth.registration.views import RegisterView as BaseRegisterView
-from allauth.account.utils import complete_signup
-from allauth.account import app_settings as allauth_account_settings
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from dj_rest_auth.registration.views import SocialLoginView
 # import local
 from .serializers import CustomRegisterSerializer
 from .models import User
+from .tasks import send_email_task
 # Create your views here.
 
 """
@@ -64,7 +59,7 @@ class CustomRegisterView(BaseRegisterView):
                 'verification_link': verification_link,
             })
         
-        send_mail(subject, strip_tags(message), settings.DEFAULT_FROM_EMAIL, [user.email])
+        send_email_task.delay(subject, message, [user.email])
         
         return Response({"message": "Signed up successfully. Check your email to verify your account"}, status=status.HTTP_201_CREATED)
 
