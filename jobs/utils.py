@@ -6,7 +6,7 @@ from io import BytesIO
 import os
 from jobs.models import Job
 
-client = genai.Client()
+# client = genai.Client()
 
 
 def generate_content(job_id, prompt=None):
@@ -20,17 +20,17 @@ def generate_content(job_id, prompt=None):
         "with deep, sun-etched wrinkles and a warm, knowing smile..."
     )
 
-    try:
-        response = client.models.generate_content(
-            model="gemini-2.5-flash-image",
-            contents=prompt,
-        )
-        # handle image as before...
-    except Exception as e:
-        if "RESOURCE_EXHAUSTED" in str(e):
-            # retry after 60 seconds
-            print("Rate limit exceeded. Retrying after 60 seconds...")
-            os.sleep(60)
+    # try:
+    #     response = client.models.generate_content(
+    #         model="gemini-2.5-flash-image",
+    #         contents=prompt,
+    #     )
+    #     # handle image as before...
+    # except Exception as e:
+    #     if "RESOURCE_EXHAUSTED" in str(e):
+    #         # retry after 60 seconds
+    #         print("Rate limit exceeded. Retrying after 60 seconds...")
+    #         os.sleep(60)
 
     # image_parts = [
     #     part.inline_data.data
@@ -41,7 +41,7 @@ def generate_content(job_id, prompt=None):
     # if not image_parts:
     #     raise ValueError("No image returned from GenAI model.")
 
-    image = Image.open(BytesIO(image_parts[0]))
+    # image = Image.open(BytesIO(image_parts[0]))
 
     # # Convert image to bytes
     # buffer = BytesIO()
